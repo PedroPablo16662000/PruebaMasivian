@@ -1,0 +1,10 @@
+**/bin
+**/obj
+.vs
+.atom
+**/*.jfm
+**/*.dbmdl
+**/*healthchecksdb*
+
+
+Backend.RuletaMasivian.API/Backend.RuletaMasivian.API.xml
