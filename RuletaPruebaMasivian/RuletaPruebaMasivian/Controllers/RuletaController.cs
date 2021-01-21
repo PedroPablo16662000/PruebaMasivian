@@ -29,12 +29,12 @@ namespace RuletaPruebaMasivian.Controllers
             int idRuleta = _business.Add(ruleta);
             return idRuleta;
         }
-        [HttpPut("AbrirRuleta")]
+        [HttpPut("OpenRuleta")]
         public string Open(int ruleta)
         {
             return _business.OpenRuleta(ruleta);
         }
-        [HttpPut("CerrarRuleta")]
+        [HttpPut("CloseRuleta")]
         public string Close(int ruleta)
         {
             return _business.CloseRuleta(ruleta);

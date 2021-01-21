@@ -51,7 +51,7 @@ namespace RuletaPruebaMasivian.Business
             {
                 if (_context.Exists(ruleta))
                 {
-                    return _context.Close(ruleta) ? "Cierre éxitosp" : "Cierre denegado";
+                    return _context.Close(ruleta) ? "Cierre éxitoso" : "Cierre denegado";
                 }
                 else
                 {

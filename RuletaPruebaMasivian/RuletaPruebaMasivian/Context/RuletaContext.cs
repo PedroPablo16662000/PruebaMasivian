@@ -24,6 +24,7 @@ namespace RuletaPruebaMasivian.Context
         }
         public bool Exists(int ruleta)
         {
+
             return true;
         }
         public int Add(Ruleta ruleta)
@@ -35,6 +36,7 @@ namespace RuletaPruebaMasivian.Context
             command.CommandType = System.Data.CommandType.Text;
             id = (int)command.ExecuteScalar();
             conn.Close();
+
             return id;
         }
         public bool Open(int ruleta)
@@ -46,6 +48,7 @@ namespace RuletaPruebaMasivian.Context
             command.CommandType = System.Data.CommandType.Text;
             estado = command.ExecuteNonQuery() == 1;
             conn.Close();
+
             return estado;
         }
         public bool Close(int ruleta)
@@ -57,6 +60,7 @@ namespace RuletaPruebaMasivian.Context
             command.CommandType = System.Data.CommandType.Text;
             estado = command.ExecuteNonQuery() == 1;
             conn.Close();
+
             return estado;
         }
     }

@@ -31,7 +31,19 @@ namespace ApuestaPruebaMasivian.Context
             command.CommandType = System.Data.CommandType.Text;
             id = (int)command.ExecuteScalar();
             conn.Close();
+
             return id;
+        }
+        public bool HasUserEnoughtMoney(Apuesta apuesta)
+        {
+            SqlConnection conn = new SqlConnection(_connectionSQL);
+            SqlCommand command = new SqlCommand($"select case when r.dineroPorGanar <= u.dineroAFavor then 'Y' else 'N' end from Usuarios u inner join Ruletas r on .idRuleta = '{apuesta.idRuleta}' where idUsuario = '{apuesta.idUsuario}'')", conn);
+            conn.Open();
+            command.CommandType = System.Data.CommandType.Text;
+            bool enought = command.ExecuteScalar().ToString().Equals("Y");
+            conn.Close();
+
+            return enought;
         }
     }
 }

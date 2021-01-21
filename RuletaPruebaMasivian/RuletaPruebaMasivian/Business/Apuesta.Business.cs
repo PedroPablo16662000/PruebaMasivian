@@ -25,6 +25,7 @@ namespace ApuestaPruebaMasivian.Business
                     id = _context.Add(apuesta);
 
                 }
+
                 return id;
             }
             catch (Exception ex)
@@ -38,8 +39,13 @@ namespace ApuestaPruebaMasivian.Business
             response = IsImparBlackPairRed(apuesta);
             response = response ? (apuesta.numero >= 0 && apuesta.numero <= 36) : response;
             response = response ? (apuesta.valorApostado >= 0 && apuesta.valorApostado <= 100000) : response;
-            //falta verificar que la ruleta este abierta.
+            response = response ? HasUserEnoughtMoney(apuesta):response; 
+
             return response;
+        }
+        private bool HasUserEnoughtMoney(Apuesta apuesta)
+        {
+            return _context.HasUserEnoughtMoney(apuesta);
         }
         private bool IsImparBlackPairRed(Apuesta apuesta)
         {

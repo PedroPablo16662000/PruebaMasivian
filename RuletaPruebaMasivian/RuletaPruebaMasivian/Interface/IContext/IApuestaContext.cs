@@ -9,5 +9,6 @@ namespace RuletaPruebaMasivian.Interface.IContext
     public interface IApuestaContext
     {
         int Add(Apuesta apuesta);
+        bool HasUserEnoughtMoney(Apuesta apuesta);
     }
 }

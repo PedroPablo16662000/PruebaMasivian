@@ -29,14 +29,9 @@ namespace RuletaPruebaMasivian.Controllers
         [HttpPost]
         public int Post(Apuesta apuesta)
         {
-            //apuesta.idUsuario = string.IsNullOrEmpty(apuesta.idUsuario)? Request.Headers["UserCode"]: apuesta.idUsuario;
+            apuesta.idUsuario = string.IsNullOrEmpty(Request.Headers["UserCode"])?apuesta.idUsuario: Request.Headers["UserCode"].ToString();
             int apuestaId = _business.Add(apuesta);
             return apuestaId;
-        }
-        [HttpPut]
-        public int Put(IEnumerable<Apuesta> apuesta)
-        {
-            return 1;
         }
     }
 }
