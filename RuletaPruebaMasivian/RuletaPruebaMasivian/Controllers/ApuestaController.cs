@@ -15,13 +15,11 @@ namespace RuletaPruebaMasivian.Controllers
     {
         private readonly ILogger<ApuestaController> _logger;
         private IApuestaBusiness _business;
-
         public ApuestaController(ILogger<ApuestaController> logger, IApuestaBusiness business)
         {
             _logger = logger;
             _business = business;
         }
-
         [HttpGet]
         public IEnumerable<Apuesta> Get()
         {

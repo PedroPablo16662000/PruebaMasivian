@@ -23,7 +23,7 @@ namespace ApuestaPruebaMasivian.Business
                 if (Rules(apuesta))
                 {
                     id = _context.Add(apuesta);
-                    
+
                 }
                 return id;
             }
@@ -32,10 +32,19 @@ namespace ApuestaPruebaMasivian.Business
                 throw new Exception(ex.Message);
             }
         }
-
         private bool Rules(Apuesta apuesta)
         {
-            throw new NotImplementedException();
+            bool response = false;
+            response = IsImparBlackPairRed(apuesta);
+            return response;
+
+        }
+        private bool IsImparBlackPairRed(Apuesta apuesta)
+        {
+            if ((apuesta.color == "red" && apuesta.numero % 2 == 0) || (apuesta.color == "black" && apuesta.numero % 2 != 0))
+                return true;
+            else
+                return false;
         }
     }
 }
