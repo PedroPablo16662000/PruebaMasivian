@@ -36,8 +36,10 @@ namespace ApuestaPruebaMasivian.Business
         {
             bool response = false;
             response = IsImparBlackPairRed(apuesta);
+            response = response ? (apuesta.numero >= 0 && apuesta.numero <= 36) : response;
+            response = response ? (apuesta.valorApostado >= 0 && apuesta.valorApostado <= 100000) : response;
+            //falta verificar que la ruleta este abierta.
             return response;
-
         }
         private bool IsImparBlackPairRed(Apuesta apuesta)
         {
