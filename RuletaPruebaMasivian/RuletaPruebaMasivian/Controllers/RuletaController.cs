@@ -29,25 +29,15 @@ namespace RuletaPruebaMasivian.Controllers
             int idRuleta = _business.Add(ruleta);
             return idRuleta;
         }
-        [HttpGet]
-        public IEnumerable<Ruleta> Get()
-        {
-            var Ruleta = new List<Ruleta>();
-            Ruleta.Add(new Ruleta()
-            {
-                idRuleta = 1,
-                fechaInicial = DateTime.Now,
-                estadoActual = true,
-                marca = "Casino Royal",
-                observacion = "Perfecto estado"
-            });
-            return Ruleta;
-        }
-
         [HttpPut("AbrirRuleta")]
-        public string Put(int ruleta)
+        public string Open(int ruleta)
         {
             return _business.OpenRuleta(ruleta);
+        }
+        [HttpPut("CerrarRuleta")]
+        public string Close(int ruleta)
+        {
+            return _business.CloseRuleta(ruleta);
         }
     }
 }

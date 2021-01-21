@@ -15,6 +15,9 @@ using RuletaPruebaMasivian.Business;
 using RuletaPruebaMasivian.Context;
 using RuletaPruebaMasivian.Interface.IContext;
 using Microsoft.OpenApi.Models;
+using ApuestaPruebaMasivian.Interface.IBusiness;
+using ApuestaPruebaMasivian.Business;
+using ApuestaPruebaMasivian.Context;
 
 namespace RuletaPruebaMasivian
 {
@@ -40,6 +43,8 @@ namespace RuletaPruebaMasivian
             });
             services.AddTransient<IRuletaBusiness, RuletaBusiness>();
             services.AddTransient<IRuletaContext, RuletaContext>();
+            services.AddTransient<IApuestaBusiness, ApuestaBusiness>();
+            services.AddTransient<IApuestaContext, ApuestaContext>();
             services.AddConnections(options => options.ToString());
             AddSwagger(services);
         }

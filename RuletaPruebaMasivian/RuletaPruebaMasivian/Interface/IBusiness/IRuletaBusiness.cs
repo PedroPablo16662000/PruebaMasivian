@@ -9,6 +9,7 @@ namespace RuletaPruebaMasivian.Interface.IBusiness
     public interface IRuletaBusiness
     {
         string OpenRuleta(int ruleta);
+        string CloseRuleta(int ruleta);
         int Add(Ruleta ruleta);
     }
 }

@@ -45,5 +45,23 @@ namespace RuletaPruebaMasivian.Business
                 throw new Exception(ex.Message);
             }
         }
+        public string CloseRuleta(int ruleta)
+        {
+            try
+            {
+                if (_context.Exists(ruleta))
+                {
+                    return _context.Close(ruleta) ? "Cierre éxitosp" : "Cierre denegado";
+                }
+                else
+                {
+                    throw new Exception($"Número de ruleta {ruleta} no encontrado"); ;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

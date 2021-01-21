@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace RuletaPruebaMasivian.Interface.IContext
 {
-    public interface IRuletaContext
+    public interface IApuestaContext
     {
-        public bool Exists(int ruleta);
-
-        public bool Open(int ruleta);
-        public bool Close(int ruleta);
-        int Add(Ruleta ruleta);
+        int Add(Apuesta apuesta);
     }
 }

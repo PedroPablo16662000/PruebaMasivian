@@ -48,5 +48,16 @@ namespace RuletaPruebaMasivian.Context
             conn.Close();
             return estado;
         }
+        public bool Close(int ruleta)
+        {
+            bool estado = false;
+            SqlConnection conn = new SqlConnection(_connectionSQL);
+            SqlCommand command = new SqlCommand($"update Ruletas set fechaFinal = '{DateTime.Now}', estadoActual=0 where idRuleta={ruleta}", conn);
+            conn.Open();
+            command.CommandType = System.Data.CommandType.Text;
+            estado = command.ExecuteNonQuery() == 1;
+            conn.Close();
+            return estado;
+        }
     }
 }

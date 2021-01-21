@@ -12,5 +12,8 @@ namespace RuletaPruebaMasivian.Models
         public string color { get; set; }
         public int valorApostado { get; set; }
         public int idRuleta { get; set; }
+        public string idUsuario { get; set; }
+        public string idUsuarioGanador { get; set; }
+        public DateTime fechaApuesta { get; set; }
     }
 }
